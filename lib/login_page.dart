@@ -14,10 +14,14 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
+        preferredSize: const Size.fromHeight(90),
         child: AppBar(
           backgroundColor: Colors.white,
-          title: Image.asset('images/logo.png', height: 200),
+          title: Padding(
+            padding: const EdgeInsets.only(
+                top: 30, bottom: 0), // Add padding to shift the logo downwards
+            child: Image.asset('images/logo.png', height: 150),
+          ),
           centerTitle: true,
         ),
       ),
@@ -31,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   FadeInUp(
                       duration: const Duration(milliseconds: 1500),
@@ -40,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                             color: Color.fromARGB(255, 238, 63, 121),
                             fontWeight: FontWeight.bold,
-                            fontSize: 30),
+                            fontSize: 25),
                       )),
                   const SizedBox(
                     height: 30,
