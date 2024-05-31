@@ -15,20 +15,24 @@ class MyApp extends StatelessWidget {
       title: 'AniVerse',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromRGBO(230, 121, 176, 1)),
         useMaterial3: true,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 205, 245, 237),
+        backgroundColor: const Color.fromARGB(255, 205, 245, 237),
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Image.asset('images/logo.png', height: 150),
@@ -36,11 +40,11 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Go to Login Page'),
+          child: const Text('Go to Login Page'),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => LoginPage()),
+              MaterialPageRoute(builder: (context) => const LoginPage()),
             );
           },
         ),
