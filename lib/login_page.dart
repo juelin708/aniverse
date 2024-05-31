@@ -12,53 +12,32 @@ class _LoginPageState extends State<LoginPage> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: AppBar(
+          backgroundColor: Colors.white,
+          title: Image.asset('images/logo.png', height: 200),
+          centerTitle: true,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              height: 400,
-              child: Stack(
-                children: <Widget>[
-                  Positioned(
-                    top: -40,
-                    height: 400,
-                    width: width,
-                    child: FadeInUp(
-                        duration: Duration(seconds: 1),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('images/background.png'),
-                                  fit: BoxFit.fill)),
-                        )),
-                  ),
-                  Positioned(
-                    height: 400,
-                    width: width + 20,
-                    child: FadeInUp(
-                        duration: Duration(milliseconds: 1000),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('images/background-2.png'),
-                                  fit: BoxFit.fill)),
-                        )),
-                  )
-                ],
-              ),
-            ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(horizontal: 50),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                  ),
                   FadeInUp(
                       duration: Duration(milliseconds: 1500),
                       child: Text(
                         "Login",
                         style: TextStyle(
-                            color: Color.fromRGBO(49, 39, 79, 1),
+                            color: const Color.fromARGB(255, 238, 63, 121),
                             fontWeight: FontWeight.bold,
                             fontSize: 30),
                       )),
@@ -72,10 +51,10 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
                             border: Border.all(
-                                color: Color.fromRGBO(196, 135, 198, .3)),
+                                color: Color.fromARGB(255, 243, 143, 176)),
                             boxShadow: [
                               BoxShadow(
-                                color: Color.fromRGBO(196, 135, 198, .3),
+                                color: Color.fromARGB(255, 251, 205, 220),
                                 blurRadius: 20,
                                 offset: Offset(0, 10),
                               )
@@ -87,8 +66,8 @@ class _LoginPageState extends State<LoginPage> {
                               decoration: BoxDecoration(
                                   border: Border(
                                       bottom: BorderSide(
-                                          color: Color.fromRGBO(
-                                              196, 135, 198, .3)))),
+                                          color: Color.fromARGB(
+                                              176, 243, 143, 176)))),
                               child: TextField(
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -122,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(
-                                    color: Color.fromRGBO(196, 135, 198, 1)),
+                                    color: Color.fromRGBO(230, 121, 176, 1)),
                               )))),
                   SizedBox(
                     height: 30,
@@ -131,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                       duration: Duration(milliseconds: 1900),
                       child: MaterialButton(
                         onPressed: () {},
-                        color: Color.fromRGBO(49, 39, 79, 1),
+                        color: Color.fromARGB(255, 207, 39, 123),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),
@@ -154,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text(
                                 "Create Account",
                                 style: TextStyle(
-                                    color: Color.fromRGBO(49, 39, 79, .6)),
+                                    color: Color.fromRGBO(230, 121, 176, 1)),
                               )))),
                 ],
               ),
