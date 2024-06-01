@@ -115,7 +115,9 @@ class _LoginPageState extends State<LoginPage> {
                   FadeInUp(
                       duration: const Duration(milliseconds: 1900),
                       child: MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context, true);
+                        },
                         color: const Color.fromARGB(255, 207, 39, 123),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
