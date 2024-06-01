@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'profile_page.dart';
+import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,6 +13,34 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future<void> _login() async {
+    final response = await http.post(
+      Uri.parse('http://example.com/api/auth/login'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'username': _usernameController.text,
+        'password': _passwordController.text,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      // Navigate to profile page
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ProfilePage()),
+      );
+    } else {
+      // Show error message
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Invalid credentials')));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                                           color: Color.fromARGB(
                                               176, 243, 143, 176)))),
                               child: TextField(
+                                controller: _usernameController,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "Username",
@@ -85,6 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                             Container(
                               padding: const EdgeInsets.all(10),
                               child: TextField(
+                                controller: _passwordController,
                                 obscureText: true,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -103,9 +137,15 @@ class _LoginPageState extends State<LoginPage> {
                       duration: const Duration(milliseconds: 1700),
                       child: Center(
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => RegisterPage()),
+                                );
+                              },
                               child: const Text(
-                                "Forgot Password?",
+                                "Create Account",
                                 style: TextStyle(
                                     color: Color.fromRGBO(230, 121, 176, 1)),
                               )))),
@@ -115,9 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                   FadeInUp(
                       duration: const Duration(milliseconds: 1900),
                       child: MaterialButton(
-                        onPressed: () {
-                          Navigator.pop(context, true);
-                        },
+                        onPressed: _login,
                         color: const Color.fromARGB(255, 207, 39, 123),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
@@ -133,16 +171,6 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 30,
                   ),
-                  FadeInUp(
-                      duration: const Duration(milliseconds: 2000),
-                      child: Center(
-                          child: TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                "Create Account",
-                                style: TextStyle(
-                                    color: Color.fromRGBO(230, 121, 176, 1)),
-                              )))),
                 ],
               ),
             )

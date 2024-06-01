@@ -15,8 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'AniVerse',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromRGBO(230, 121, 176, 1)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
       home: const MyHomePage(),
