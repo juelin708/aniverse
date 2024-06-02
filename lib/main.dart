@@ -30,43 +30,41 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
-      //appBar: AppBar(
-       // backgroundColor: Color.fromARGB(255, 208, 238, 226),
-        // We take the value from the MyHomePage object and use it to set appbar title.
-       // title: Image.asset('images/logo.png', height: 180),
-       // centerTitle: true,
-      //),
-          body: Stack( 
-        children: [   // Background image
-          Positioned.fill(
-            child: Image.asset(
-              'images/portal_1.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
-           Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  'images/logo.png',
-                  height: 400, // Adjust the height as needed
-                ),
-                //const SizedBox(height: 0), // Space between the logo and button
-                ElevatedButton(
-                  child: const Text('LOGIN'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const LoginPage()),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ],
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+            leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.place, color: Colors.red)),
+            backgroundColor: const Color.fromARGB(255, 205, 245, 237),
+            title: Image.asset('images/logo.png', height: 150),
+            centerTitle: true,
+            actions: [
+              Container(
+                padding: const EdgeInsets.only(right: 5),
+                child: IconButton(
+                    onPressed: () {}, icon: const Icon(Icons.search)),
+              ),
+            ]),
+        body: const Button());
+  }
+}
+
+class Button extends StatelessWidget {
+  const Button({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Go to Login Page'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginPage()),
+            );
+          },
+        ),
       ),
     );
   }
