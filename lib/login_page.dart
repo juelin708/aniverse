@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(90),
         child: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
           title: Padding(
             padding: const EdgeInsets.only(
                 top: 30, bottom: 0), // Add padding to shift the logo downwards
@@ -60,10 +60,13 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         children: [
           // Background image
-          Positioned.fill(
-            child: Image.asset(
-              'images/portal_2.jpg', //background image path
-              fit: BoxFit.cover,
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image:
+                    AssetImage('images/portal_2.jpg'), // Background image path
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           // Main content

@@ -35,7 +35,7 @@ class MyHomePage extends StatelessWidget {
         centerTitle: true,
       ),*/
       body: Stack(
-        children: [
+        children: <Widget>[
           // Background image
           Positioned.fill(
             child: Image.asset(
