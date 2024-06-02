@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart'; // Import the login page
+import 'login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,13 +8,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // root of application
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'AniVerse',
       theme: ThemeData(
-        // This is the theme of your application.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
