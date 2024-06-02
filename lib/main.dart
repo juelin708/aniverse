@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AniVerse',
       theme: ThemeData(
-        // theme of application
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromRGBO(230, 121, 176, 1)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
       home: const MyHomePage(),
