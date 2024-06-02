@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _login() async {
     final response = await http.post(
-      Uri.parse('http://localhost.8080/auth/login'),
+      Uri.parse('http://10.0.2.2:8080/auth/login'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
           centerTitle: true,
         ),
       ),
-        body: Stack(
+      body: Stack(
         children: [
           // Background image
           Positioned.fill(
@@ -89,63 +89,48 @@ class _LoginPageState extends State<LoginPage> {
                     height: 30,
                   ),
                   FadeInUp(
-                      duration: const Duration(milliseconds: 1700),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                            border: Border.all(
-                                color:
-                                    const Color.fromARGB(255, 243, 143, 176)),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color.fromARGB(255, 251, 205, 220),
-                                blurRadius: 20,
-                                offset: Offset(0, 10),
-                              )
-                            ]),
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                      bottom: BorderSide(
-                                          color: Color.fromARGB(
-                                              176, 243, 143, 176)))),
-                              child: TextField(
-                                controller: _usernameController,
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Username",
-                                    hintStyle:
-                                        TextStyle(color: Colors.grey.shade700)),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              child: TextField(
-                                controller: _passwordController,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Password",
-                                    hintStyle:
-                                        TextStyle(color: Colors.grey.shade700)),
-                              ),
+                    duration: const Duration(milliseconds: 1700),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 243, 143, 176)),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color.fromARGB(255, 251, 205, 220),
+                              blurRadius: 20,
+                              offset: Offset(0, 10),
+                            )
+                          ]),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: const BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Color.fromARGB(
+                                            176, 243, 143, 176)))),
+                            child: TextField(
+                              controller: _usernameController,
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Username",
+                                  hintStyle:
+                                      TextStyle(color: Colors.grey.shade700)),
                             ),
                           ),
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextField(
+                              controller: _passwordController,
                               obscureText: true,
                               decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Password",
-                                hintStyle: TextStyle(
-                                  color: Colors.grey.shade700,
-                                ),
-                              ),
+                                  border: InputBorder.none,
+                                  hintText: "Password",
+                                  hintStyle:
+                                      TextStyle(color: Colors.grey.shade700)),
                             ),
                           ),
                         ],
@@ -175,19 +160,18 @@ class _LoginPageState extends State<LoginPage> {
                     height: 30,
                   ),
                   FadeInUp(
-                      duration: const Duration(milliseconds: 1900),
-                      child: MaterialButton(
-                        onPressed: _login,
-                        color: const Color.fromARGB(255, 207, 39, 123),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        height: 50,
-                        child: const Center(
-                          child: Text(
-                            "Login",
-                            style: TextStyle(color: Colors.white),
-                          ),
+                    duration: const Duration(milliseconds: 1900),
+                    child: MaterialButton(
+                      onPressed: _login,
+                      color: const Color.fromARGB(255, 207, 39, 123),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      height: 50,
+                      child: const Center(
+                        child: Text(
+                          "Login",
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
