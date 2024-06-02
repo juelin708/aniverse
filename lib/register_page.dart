@@ -13,7 +13,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Future<void> _register() async {
     final response = await http.post(
-      Uri.parse('http://example.com/api/auth/register'),
+      Uri.parse('http://localhost:8080/auth/register'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
