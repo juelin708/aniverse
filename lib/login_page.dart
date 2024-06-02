@@ -46,12 +46,12 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(90),
+        preferredSize: const Size.fromHeight(70),
         child: AppBar(
           backgroundColor: Colors.transparent,
           title: Padding(
             padding: const EdgeInsets.only(
-                top: 30, bottom: 0), // Add padding to shift the logo downwards
+                top: 20, bottom: 0), // Add padding to shift the logo downwards
             child: Image.asset('images/logo.png', height: 150),
           ),
           centerTitle: true,
